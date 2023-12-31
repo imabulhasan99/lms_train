@@ -35,7 +35,7 @@ class UserFactory extends Factory
            'address_two'    => $this->faker->secondaryAddress,
            'city'           => $this->faker->city,
            'zip_code'       => $this->faker->numberBetween(1000,10000),
-           'role'           => $this->faker->randomElement(['student','instrauctor']),
+           'role'           => $this->faker->randomElement(['student']),
         ];
     }
 

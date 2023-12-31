@@ -21,9 +21,9 @@ class DatabaseSeeder extends Seeder
            'email' => 'admin@admin.com',
          ]); */
          $this->call([
-            ReviewSeeder::class,
+            //ReviewSeeder::class,
             UserSeeder::class,
-            CourseSeeder::class,
+            //CourseSeeder::class,
         ]);
     }
 }
