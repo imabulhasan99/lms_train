@@ -1,47 +1,107 @@
-<x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
+	@extends('layouts.auth.app')	
+	@section('auth-form')
+	<div class="main-wrapper log-wrap">
+		
+		<div class="row">
+		
+			<!-- Login Banner -->
+			<div class="col-md-6 login-bg">
+				<div class="owl-carousel login-slide owl-theme">
+					<div class="welcome-login">
+						<div class="login-banner">
+							<img src="assets/img/login-img.png" class="img-fluid" alt="Logo">
+						</div>
+						<div class="mentor-course text-center">
+							<h2>Welcome to <br>DreamsLMS Courses.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						</div>
+					</div>
+					<div class="welcome-login">
+						<div class="login-banner">
+							<img src="assets/img/login-img.png" class="img-fluid" alt="Logo">
+						</div>
+						<div class="mentor-course text-center">
+							<h2>Welcome to <br>DreamsLMS Courses.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						</div>
+					</div>
+					<div class="welcome-login">
+						<div class="login-banner">
+							<img src="assets/img/login-img.png" class="img-fluid" alt="Logo">
+						</div>
+						<div class="mentor-course text-center">
+							<h2>Welcome to <br>DreamsLMS Courses.</h2>
+							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- /Login Banner -->
+			
+			<div class="col-md-6 login-wrap-bg">		
+			
+				<!-- Login -->
+				<div class="login-wrapper">
+					<div class="loginbox">
+						<div class="img-logo">
+							<img src="assets/img/logo.svg" class="img-fluid" alt="Logo">
+							<div class="back-home">
+								<a href="index.html">Back to Home</a>
+							</div>
+						</div>
+						<h1>Login</h1>
+						<form action="{{route('login.store')}}" method="POST">
+							@csrf
+							<div class="input-block">
+								<label class="form-control-label">Email</label>
+								<input type="email" name="email" class="form-control" placeholder="Enter your email address">
+								@error('email')
+    								<div class="text-danger">{{ $message }}</div>
+								@enderror
+							</div>
+							
+							<div class="input-block">
+								<label class="form-control-label">Password</label>
+								<div class="pass-group" id="passwordInput">																	
+									<input type="password" name="password" class="form-control pass-input" placeholder="Enter your password">
+									@error('password')
+										<div class="text-danger">{{ $message }}</div>
+									@enderror
+									<span class="toggle-password feather-eye"></span>
+									<span class="pass-checked"><i class="feather-check"></i></span>
+								</div>
+								<div  class="password-strength" id="passwordStrength">
+									<span id="poor"></span>
+									<span id="weak"></span>
+									<span id="strong"></span>
+									<span id="heavy"></span>
+								</div>
+								<div id="passwordInfo"></div>	
+								
+							</div>
 
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout>
+					
+							<div class="d-grid">
+								<button class="btn btn-primary btn-start" type="submit">Login</button>
+							</div>
+						</form>
+					</div>
+					<div class="google-bg text-center">
+						<span><a href="#">Or sign in with</a></span>
+						<div class="sign-google">
+							<ul>
+								<li><a href="#"><img src="assets/img/net-icon-01.png" class="img-fluid" alt="Logo"> Sign In using Google</a></li>
+								<li><a href="#"><img src="assets/img/net-icon-02.png" class="img-fluid" alt="Logo">Sign In using Facebook</a></li>
+							</ul>
+						</div>
+						<p class="mb-0">Already have an account? <a href="login.html">Sign in</a></p>
+					</div>
+				</div>
+				<!-- /Login -->
+				
+			</div>
+			
+		</div>
+	   
+   </div>
+	@endsection

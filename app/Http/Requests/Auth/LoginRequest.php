@@ -31,6 +31,13 @@ class LoginRequest extends FormRequest
             'password' => ['required', 'string'],
         ];
     }
+    public function messages(): array
+    {
+        return [
+            'email'=> 'Email can not be empty',
+            'password'=> 'Password can not be empty',
+        ];
+    }
 
     /**
      * Attempt to authenticate the request's credentials.
