@@ -10,7 +10,7 @@ use App\Http\Controllers\ProfileController;
 Route::get('/', function () {
     return view('welcome');
 })->name('home');
-Route::get('/dashboard', DashboardController::class)->middleware('auth');
+Route::get('/dashboard', DashboardController::class)->middleware('auth')->name('dashboard');
 
 
 Route::middleware(["auth","role:instrauctor"])->prefix('instrauctor')->group(function () {

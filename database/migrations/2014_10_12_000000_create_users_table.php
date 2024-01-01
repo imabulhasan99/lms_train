@@ -24,7 +24,7 @@ return new class extends Migration
             $table->string('address_two')->nullable();
             $table->string('city')->nullable();
             $table->integer('zip_code')->nullable();
-            $table->string('role');
+            $table->string('role')->default('student');
             $table->timestamps();
             $table->softDeletes();
         });

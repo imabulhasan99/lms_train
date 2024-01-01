@@ -94,7 +94,8 @@
 								<li><a href="#"><img src="assets/img/net-icon-02.png" class="img-fluid" alt="Logo">Sign In using Facebook</a></li>
 							</ul>
 						</div>
-						<p class="mb-0">Already have an account? <a href="login.html">Sign in</a></p>
+						<p class="mb-0 btn btn-primary btn-start">Don't have a account? <a class="text-warning" href="{{route('student.register')}}">Register</a></p>
+						<p class="mb-0 btn btn-primary btn-start">Join as instracutor <a class="text-warning" href="{{route('student.register')}}">Register</a></p>
 					</div>
 				</div>
 				<!-- /Login -->

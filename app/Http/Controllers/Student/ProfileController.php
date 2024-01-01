@@ -2,8 +2,14 @@
 
 namespace App\Http\Controllers\Student;
 
-use App\Http\Controllers\Controller;
+use App\Models\User;
+use App\Constants\Role;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
+use App\Services\StudentRegistrationService;
+use App\Http\Requests\StudentRegistrationRequest;
 
 class ProfileController extends Controller
 {
@@ -12,6 +18,7 @@ class ProfileController extends Controller
      */
     public function index()
     {
+        
         return view("student.dashboard");
     }
 
@@ -20,15 +27,17 @@ class ProfileController extends Controller
      */
     public function create()
     {
-        //
+        $countries = User::pluck('country')->all();
+        return view("auth.register.student-register",['countries'=>$countries]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(StudentRegistrationRequest $request, StudentRegistrationService $service)
     {
-        //
+        $data = $request->validated();
+        $service->register( $data);
     }
 
     /**

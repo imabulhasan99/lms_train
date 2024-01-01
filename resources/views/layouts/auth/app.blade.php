@@ -22,7 +22,7 @@
 		
 		<!-- Feathericon CSS -->
         <link rel="stylesheet" href="{{asset('assets/plugins/feather/feather.css')}}">
-
+		<link rel="stylesheet" href="{{asset('assets/plugins/select2/css/select2.min.css')}}">
 		<!-- Main CSS -->
 		<link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
 	
@@ -44,9 +44,19 @@
 		
 		<!-- Validation-->
 		<script src="{{asset('assets/js/validation.js')}}"></script>	
+		<script src="{{asset('assets/plugins/select2/js/select2.min.js')}}"></script>	
 		
 		<!-- Custom JS -->
 		<script src="{{asset('assets/js/script.js')}}"></script>
+		<script>
+			$(document).ready(function () {
+				$('#countryDropdown').select2({
+					placeholder: 'Search for a country',
+					allowClear: true,
+					width: '100%', // Adjust the width as needed
+				});
+			});
+		</script>
 		
 			
 	</body>
