@@ -34,7 +34,7 @@
 			<!-- Header -->
 			<header class="header header-page">
 				<div class="header-fixed">
-					@include('instractor.partials.nav')
+					@include('instrauctor.partials.nav')
 				</div>
 			</header>
 			<!-- /Header -->
@@ -45,7 +45,7 @@
 					<div class="row">
 						
 						<!-- Sidebar -->
-						@include('instractor.partials.sidebar')
+						@include('instrauctor.partials.sidebar')
 						<!-- /Sidebar -->
 						
 						<!-- Instructor Dashboard -->

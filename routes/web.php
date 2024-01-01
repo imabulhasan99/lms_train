@@ -1,27 +1,25 @@
 <?php
 
-use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\Instructors\ProfileController as InstructorsProfileController;
+use App\Http\Controllers\Student\ProfileController as StudentProfileController;
+use App\Models\User;
 use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider and all of them will
-| be assigned to the "web" middleware group. Make something great!
-|
-*/
+use App\Http\Controllers\ProfileController;
 
 Route::get('/', function () {
     return view('welcome');
+})->name('home');
+Route::get('/dashboard', DashboardController::class)->middleware('auth');
+
+
+Route::middleware(["auth","role:instrauctor"])->prefix('instrauctor')->group(function () {
+    Route::get('/dashboard', [InstructorsProfileController::class,'index'])->name('instrauctor.dashboard');
 });
 
-Route::middleware(['auth'])->prefix('instractor')->group(function () {
-    Route::get('dashboard', function(){
-        return view('instractor.dashboard');
-    });
+
+Route::middleware(["auth","role:student"])->prefix('student')->group(function () {
+    Route::get('/dashboard', [StudentProfileController::class,'index'])->name('student.dashboard');
 });
 
 

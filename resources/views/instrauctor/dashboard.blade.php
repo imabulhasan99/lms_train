@@ -1,4 +1,4 @@
-@extends('layouts.instractor.app')
+@extends('layouts.instrauctor.app')
 @section('instactor-main-content')
 <div class="col-xl-9 col-lg-8 col-md-12">	
 	<div class="row">

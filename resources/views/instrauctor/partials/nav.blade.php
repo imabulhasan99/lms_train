@@ -14,7 +14,7 @@
         </div>
         <div class="main-menu-wrapper">
             <div class="menu-header">
-                <a href="index.html" class="menu-logo">
+                <a href="{{route('home')}}" class="menu-logo">
                     <img src="{{asset('assets/img/logo.svg')}}" class="img-fluid" alt="Logo">
                 </a>
                 <a id="menu_close" class="menu-close" href="javascript:void(0);">
@@ -301,7 +301,13 @@
                             <input class="form-check-input" type="checkbox" id="night-mode">
                         </div>
                     </div>
-                    <a class="dropdown-item" href="index.html"><i class="feather-log-out me-1"></i> Logout</a>
+                    <form action="{{route('logout')}}" method="post">
+                        @csrf
+                        <button class="dropdown-item">
+                            <i class="feather-log-out me-1"></i> Logout
+                        </button>
+                    </form>
+                   
                 </div>
             </li>
         </ul>
