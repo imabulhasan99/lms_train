@@ -53,7 +53,7 @@
 				$('#countryDropdown').select2({
 					placeholder: 'Search for a country',
 					allowClear: true,
-					width: '100%', // Adjust the width as needed
+					width: '100%', 
 				});
 			});
 		</script>
